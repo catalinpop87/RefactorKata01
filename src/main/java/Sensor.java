@@ -9,14 +9,16 @@ public class Sensor {
     public static final double HighPressureThreshold = 21;
 
     public double popNextPressurePsiValue() {
-        double pressureTelemetryValue = samplePressure( );
-        return OFFSET + pressureTelemetryValue;
+        return OFFSET + samplePressure( );
     }
 
     private static double samplePressure() {
         // placeholder implementation that simulate a real sensor in a real tire
         Random basicRandomNumbersGenerator = new Random();
-        double pressureTelemetryValue = 6 * basicRandomNumbersGenerator.nextDouble() * basicRandomNumbersGenerator.nextDouble();
-        return pressureTelemetryValue;
+        return getPressureTelemetryValue(basicRandomNumbersGenerator);
+    }
+
+    private static double getPressureTelemetryValue(Random basicRandomNumbersGenerator) {
+        return 6 * basicRandomNumbersGenerator.nextDouble() * basicRandomNumbersGenerator.nextDouble();
     }
 }

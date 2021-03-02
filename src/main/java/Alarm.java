@@ -4,14 +4,12 @@ public class Alarm {
   boolean alarmOn = false;
 
   public Boolean isAlarmOn() {
-    double psiPressureValue = sensor.popNextPressurePsiValue();
-    if (isGoodPressure(psiPressureValue)) {
+    if (isGoodPressure(sensor.popNextPressurePsiValue())) {
       alarmOn = true;
     }
     return alarmOn;
   }
-
-    private boolean isGoodPressure(double psiPressureValue) {
-        return psiPressureValue < Sensor.LowPressureThreshold || Sensor.HighPressureThreshold < psiPressureValue;
-    }
+  private boolean isGoodPressure(double psiPressureValue) {
+    return psiPressureValue < Sensor.LowPressureThreshold || Sensor.HighPressureThreshold < psiPressureValue;
+  }
 }
