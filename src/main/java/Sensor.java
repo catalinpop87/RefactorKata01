@@ -5,11 +5,11 @@ import java.util.Random;
 
 public class Sensor {
     public static final double OFFSET = 16;
+    public static final double LowPressureThreshold = 17;
+    public static final double HighPressureThreshold = 21;
 
     public double popNextPressurePsiValue() {
-        double pressureTelemetryValue;
-        pressureTelemetryValue = samplePressure( );
-
+        double pressureTelemetryValue = samplePressure( );
         return OFFSET + pressureTelemetryValue;
     }
 
